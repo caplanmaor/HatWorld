@@ -12,10 +12,11 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 def get_db_connection():
     conn = psycopg2.connect(
-            host="localhost",
-            database="dosnoventa",
-            user="postgres",
-            password="Mopipopi315")
+            host="ec2-34-246-227-219.eu-west-1.compute.amazonaws.com",
+            database="d8q4pmulnejt4j",
+            user="xdaqmssjmrcpjh",
+            password="928761111f60310b9032d1556646b9796227cd0e7c73d1bb451f2970e2d14405",
+            port="5432",)
     return conn
 
 
