@@ -160,8 +160,8 @@
 #video {
   position: fixed;
   z-index: -1;
-  width: 1920px;
-  height: 1080px;
+  /* width: 1920px; */
+  height: 1380px;
 }
 
 .admin-btn {
