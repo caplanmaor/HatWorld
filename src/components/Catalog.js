@@ -8,7 +8,7 @@ function Catalog() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://127.0.0.1:5000/bikes");
+      const response = await fetch("https://hat-world.herokuapp.com/bikes");
       const items = await response.json();
       allItems = items;
       setData(items);
