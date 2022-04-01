@@ -6,10 +6,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-  let navi = useNavigate();
-  function handleClick() {
-    navi("http://localhost:3000/admin");
-  }
   return (
     <div className="App">
       <Navbar />
