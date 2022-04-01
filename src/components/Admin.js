@@ -19,7 +19,7 @@ function Admin() {
 
   const saveForm = () => {
     axios
-      .post(`http://localhost:5000/createBike`, {
+      .post(`https://hat-world.herokuapp.com/createBike`, {
         data_image: image,
         data_name: name,
         data_price: price,
@@ -39,7 +39,7 @@ function Admin() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/bikes");
+      const response = await fetch("https://hat-world.herokuapp.com/bikes");
       const bikesData = await response.json();
       setData(bikesData);
     };
@@ -58,7 +58,7 @@ function Admin() {
 
   const deleteBike = () => {
     axios
-      .post("http://localhost:5000/deleteBike", {
+      .post("https://hat-world.herokuapp.com/deleteBike", {
         data: select,
       })
       .then(function (res) {
