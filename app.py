@@ -26,7 +26,7 @@ def get_db_connection():
 def bikes():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute(f'SELECT * FROM bikes')
+    cur.execute(f'SELECT * FROM items')
     response = cur.fetchall()
     bikes = []
     for bike in response:
@@ -50,7 +50,7 @@ def create_bike():
     image = response["data_image"]
     name = response["data_name"]
     price = response["data_price"]
-    cur.execute("INSERT INTO bikes (img, name, price) VALUES (%(image)s, %(name)s, %(price)s)", {'image': image, 'name': name, 'price': price})
+    cur.execute("INSERT INTO items (img, name, price) VALUES (%(image)s, %(name)s, %(price)s)", {'image': image, 'name': name, 'price': price})
     conn.commit()
     cur.close()
     conn.close()
@@ -63,7 +63,7 @@ def delete_bike():
     cur = conn.cursor()
     response = request.json
     name = response["data"]
-    cur.execute("DELETE FROM bikes WHERE name=%(name)s", {'name': name})
+    cur.execute("DELETE FROM items WHERE name=%(name)s", {'name': name})
     conn.commit()
     cur.close()
     conn.close()
