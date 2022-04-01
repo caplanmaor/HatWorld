@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const axios = require("axios");
 
 function Admin() {
@@ -70,36 +71,34 @@ function Admin() {
     deleteBike();
   };
 
+  let navi = useNavigate();
+  function handleReturnClick() {
+    navi("/");
+  }
+
   return (
     <div className="admin">
-      <h1>Admin Tools</h1>
-      <h2>Remove Bikes</h2>
-      <div>
-        <br />
-        <select onChange={handleSelectChange}>
-          {data.map((data) => (
-            <option value={data.name}>{data.name}</option>
-          ))}
-        </select>
-      </div>
-      <button onClick={handleDelete}>remove</button>
-      <h2>Add Bikes</h2>
+      <h1 className="admin-title">Admin Tools</h1>
+      <button className="admin-btn" onClick={handleReturnClick}>
+        Exit Admin Tools
+      </button>
+      <h2>Add item</h2>
       <form onSubmit={handleSubmit}>
-        <h3>bike image</h3>
+        <h3>item image</h3>
         <input
           type="text"
           name="image"
           value={image}
           onChange={handleInputChange}
         />
-        <h3>bike name</h3>
+        <h3>item name</h3>
         <input
           type="text"
           name="name"
           value={name}
           onChange={handleInputChange}
         />
-        <h3>bike price</h3>
+        <h3>item price</h3>
         <input
           type="text"
           name="price"
@@ -107,7 +106,17 @@ function Admin() {
           onChange={handleInputChange}
         />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
+        <h2>Remove item</h2>
+        <div>
+          <br />
+          <select onChange={handleSelectChange}>
+            {data.map((data) => (
+              <option value={data.name}>{data.name}</option>
+            ))}
+          </select>
+        </div>
+        <button onClick={handleDelete}>remove</button>
       </form>
     </div>
   );
