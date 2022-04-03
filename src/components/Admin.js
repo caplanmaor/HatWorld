@@ -29,11 +29,6 @@ function Admin() {
       });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveForm();
-  };
-
   // bikes for select
   const [data, setData] = React.useState([]);
 
@@ -66,16 +61,22 @@ function Admin() {
       });
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    deleteBike();
-  };
-
   let navi = useNavigate();
   function handleReturnClick() {
     navi("/");
   }
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    deleteBike();
+    navi("/");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveForm();
+    navi("/");
+  };
   return (
     <div className="admin">
       <h1 className="admin-title">Admin Tools</h1>
